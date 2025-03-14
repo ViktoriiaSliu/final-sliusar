@@ -330,3 +330,75 @@
 [2025-03-14T10:29:29.691Z] INFO: Validating expected message: "Swag Labs"
 [2025-03-14T10:29:29.697Z] INFO: Actual page title: "Swag Labs"
 [2025-03-14T10:29:29.697Z] INFO: Validation completed.
+[2025-03-14T10:33:41.707Z] INFO: Navigating to login page
+[2025-03-14T10:33:41.709Z] INFO: Opening the login page
+[2025-03-14T10:33:42.088Z] INFO: Login page opened successfully.
+[2025-03-14T10:33:42.090Z] INFO: Entering username: 
+[2025-03-14T10:33:42.199Z] INFO: Entering password: anyPass
+[2025-03-14T10:33:42.275Z] INFO: Clearing username and password fields...
+[2025-03-14T10:33:42.337Z] INFO: Fields cleared.
+[2025-03-14T10:33:42.338Z] INFO: Clicking the login button...
+[2025-03-14T10:33:42.411Z] INFO: Login button clicked.
+[2025-03-14T10:33:42.413Z] INFO: Validating expected message: "Epic sadface: Username is required"
+[2025-03-14T10:33:42.458Z] ERROR: Login error message displayed: Epic sadface: Username is required
+[2025-03-14T10:33:42.458Z] INFO: Actual error message: "Epic sadface: Username is required"
+[2025-03-14T10:33:42.460Z] INFO: Validation completed.
+[2025-03-14T10:33:42.462Z] INFO: Navigating to login page
+[2025-03-14T10:33:42.462Z] INFO: Opening the login page
+[2025-03-14T10:33:42.509Z] INFO: Login page opened successfully.
+[2025-03-14T10:33:42.511Z] INFO: Entering username: validUser
+[2025-03-14T10:33:42.574Z] INFO: Entering password: 
+[2025-03-14T10:33:42.623Z] INFO: Skipping field clearing.
+[2025-03-14T10:33:42.623Z] INFO: Clicking the login button...
+[2025-03-14T10:33:42.668Z] INFO: Login button clicked.
+[2025-03-14T10:33:42.669Z] INFO: Validating expected message: "Epic sadface: Password is required"
+[2025-03-14T10:33:42.699Z] ERROR: Login error message displayed: Epic sadface: Password is required
+[2025-03-14T10:33:42.699Z] INFO: Actual error message: "Epic sadface: Password is required"
+[2025-03-14T10:33:42.699Z] INFO: Validation completed.
+[2025-03-14T10:33:42.701Z] INFO: Navigating to login page
+[2025-03-14T10:33:42.701Z] INFO: Opening the login page
+[2025-03-14T10:33:42.735Z] INFO: Login page opened successfully.
+[2025-03-14T10:33:42.736Z] INFO: Entering username: performance_glitch_user
+[2025-03-14T10:33:42.804Z] INFO: Entering password: secret_sauce
+[2025-03-14T10:33:42.859Z] INFO: Skipping field clearing.
+[2025-03-14T10:33:42.859Z] INFO: Clicking the login button...
+[2025-03-14T10:33:43.869Z] INFO: Navigating to login page
+[2025-03-14T10:33:43.870Z] INFO: Opening the login page
+[2025-03-14T10:33:44.466Z] INFO: Login page opened successfully.
+[2025-03-14T10:33:44.468Z] INFO: Entering username: 
+[2025-03-14T10:33:44.544Z] INFO: Entering password: anyPass
+[2025-03-14T10:33:44.597Z] INFO: Clearing username and password fields...
+[2025-03-14T10:33:44.653Z] INFO: Fields cleared.
+[2025-03-14T10:33:44.655Z] INFO: Clicking the login button...
+[2025-03-14T10:33:44.886Z] INFO: Login button clicked.
+[2025-03-14T10:33:44.887Z] INFO: Validating expected message: "Epic sadface: Username is required"
+[2025-03-14T10:33:44.916Z] ERROR: Login error message displayed: Epic sadface: Username is required
+[2025-03-14T10:33:44.916Z] INFO: Actual error message: "Epic sadface: Username is required"
+[2025-03-14T10:33:44.918Z] INFO: Validation completed.
+[2025-03-14T10:33:44.920Z] INFO: Navigating to login page
+[2025-03-14T10:33:44.920Z] INFO: Opening the login page
+[2025-03-14T10:33:45.038Z] INFO: Login page opened successfully.
+[2025-03-14T10:33:45.039Z] INFO: Entering username: validUser
+[2025-03-14T10:33:45.090Z] INFO: Entering password: 
+[2025-03-14T10:33:45.117Z] INFO: Skipping field clearing.
+[2025-03-14T10:33:45.118Z] INFO: Clicking the login button...
+[2025-03-14T10:33:45.351Z] INFO: Login button clicked.
+[2025-03-14T10:33:45.352Z] INFO: Validating expected message: "Epic sadface: Password is required"
+[2025-03-14T10:33:45.374Z] ERROR: Login error message displayed: Epic sadface: Password is required
+[2025-03-14T10:33:45.374Z] INFO: Actual error message: "Epic sadface: Password is required"
+[2025-03-14T10:33:45.374Z] INFO: Validation completed.
+[2025-03-14T10:33:45.376Z] INFO: Navigating to login page
+[2025-03-14T10:33:45.376Z] INFO: Opening the login page
+[2025-03-14T10:33:45.480Z] INFO: Login page opened successfully.
+[2025-03-14T10:33:45.481Z] INFO: Entering username: performance_glitch_user
+[2025-03-14T10:33:45.528Z] INFO: Entering password: secret_sauce
+[2025-03-14T10:33:45.554Z] INFO: Skipping field clearing.
+[2025-03-14T10:33:45.555Z] INFO: Clicking the login button...
+[2025-03-14T10:33:47.939Z] INFO: Login button clicked.
+[2025-03-14T10:33:47.940Z] INFO: Validating expected message: "Swag Labs"
+[2025-03-14T10:33:47.948Z] INFO: Actual page title: "Swag Labs"
+[2025-03-14T10:33:47.948Z] INFO: Validation completed.
+[2025-03-14T10:33:50.794Z] INFO: Login button clicked.
+[2025-03-14T10:33:50.795Z] INFO: Validating expected message: "Swag Labs"
+[2025-03-14T10:33:50.799Z] INFO: Actual page title: "Swag Labs"
+[2025-03-14T10:33:50.800Z] INFO: Validation completed.
