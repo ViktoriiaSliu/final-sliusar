@@ -1,58 +1,91 @@
-const { Given, When, Then } = require('@wdio/cucumber-framework');
-const LoginPage = require('../pageobjects/login.page');
-const assert = require('chai').assert;
+// const { Given, When, Then } = require("@cucumber/cucumber");
+// const LoginPage = require("../pageobjects/login.page.js");
+// const { expect } = require("chai");
 
-Given(/^I open the login page$/, async () => {
-    await browser.url('/');
+// Given("I am on the login page", async () => {
+//   await LoginPage.open();
+// });
+
+// When("I enter username {string}", async (username) => {
+//   await LoginPage.username.setValue(username);
+// });
+
+// When("I enter password {string}", async (password) => {
+//   await LoginPage.password.setValue(password);
+// });
+
+// When('I clear the fields if {string} is "true"', async (clearFields) => {
+//   if (clearFields === "true") {
+//     await LoginPage.username.clearValue();
+//     await LoginPage.password.clearValue();
+//   }
+// });
+
+// When("I click on the login button", async () => {
+//   await LoginPage.loginButton.click();
+// });
+
+// Then("I should see {string}", async (expectedMessage) => {
+//   if (expectedMessage === "Swag Labs") {
+//     const actualTitle = await browser.getTitle();
+//     expect(actualTitle).to.equal(expectedMessage);
+//   } else {
+//     const actualMessage = await LoginPage.getErrorMessage();
+//     console.log(`Actual error message: "${actualMessage}"`);
+//     expect(actualMessage.toLowerCase()).to.contain(expectedMessage.toLowerCase());
+//   }
+// });
+
+const { Given, When, Then } = require("@cucumber/cucumber");
+const LoginPage = require("../pageobjects/login.page.js");
+const { expect } = require("chai");
+const logger = require("../utils/logger");
+
+Given("I am on the login page", async () => {
+  logger.info("Navigating to login page");
+  await LoginPage.open();
+  logger.info("Login page opened successfully.");
 });
 
-
-
-When(/^I enter empty credentials$/, async () => {
-    await LoginPage.enterUsername('');
-    await LoginPage.enterPassword('');
+When("I enter username {string}", async (username) => {
+  logger.info(`Entering username: ${username}`);
+  await LoginPage.username.setValue(username);
 });
 
-When(/^I enter only a username$/, async () => {
-    await LoginPage.enterUsername('standard_user');
-    await LoginPage.enterPassword('');
+When("I enter password {string}", async (password) => {
+  logger.info(`Entering password: ${password}`);
+  await LoginPage.password.setValue(password);
 });
 
-When(/^I enter only a password$/, async () => {
-    await LoginPage.enterUsername('');
-    await LoginPage.enterPassword('secret_sauce');
+When('I clear the fields if {string} is "true"', async (clearFields) => {
+  if (clearFields === "true") {
+    logger.info("Clearing username and password fields...");
+    await LoginPage.username.clearValue();
+    await LoginPage.password.clearValue();
+    logger.info("Fields cleared.");
+  } else {
+    logger.info("Skipping field clearing.");
+  }
 });
 
-When(/^I enter valid credentials$/, async () => {
-    await LoginPage.enterUsername('performance_glitch_user');
-    await LoginPage.enterPassword('secret_sauce');
+When("I click on the login button", async () => {
+  logger.info("Clicking the login button...");
+  await LoginPage.loginButton.click();
+  logger.info("Login button clicked.");
 });
 
-When(/^I clear the inputs$/, async () => {
-    await LoginPage.clearInputs();
-});
+Then("I should see {string}", async (expectedMessage) => {
+  logger.info(`Validating expected message: "${expectedMessage}"`);
 
-When(/^I clear the password input$/, async () => {
-    await LoginPage.clearPassword();
-});
-
-When(/^I click the login button$/, async () => {
-    await LoginPage.clickLogin();
-});
-
-
-
-Then(/^I should see an error message for empty username$/, async () => {
-    const errorText = await LoginPage.getErrorMessage();
-    assert.include(errorText, "Username is required");
-});
-
-Then(/^I should see an error message for missing password$/, async () => {
-    const errorText = await LoginPage.getErrorMessage();
-    assert.include(errorText, "Password is required");
-});
-
-Then(/^I should see the dashboard title "(.*)"$/, async (title) => {
+  if (expectedMessage === "Swag Labs") {
     const actualTitle = await browser.getTitle();
-    assert.strictEqual(actualTitle, title);
+    logger.info(`Actual page title: "${actualTitle}"`);
+    expect(actualTitle).to.equal(expectedMessage);
+  } else {
+    const actualMessage = await LoginPage.getErrorMessage();
+    logger.info(`Actual error message: "${actualMessage}"`);
+    expect(actualMessage.toLowerCase()).to.contain(expectedMessage.toLowerCase());
+  }
+  
+  logger.info("Validation completed.");
 });

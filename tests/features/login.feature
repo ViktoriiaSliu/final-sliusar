@@ -1,19 +1,15 @@
 Feature: Login functionality
 
-  Scenario: Login with empty credentials
-    Given I open the login page
-    When I enter empty credentials
-    When I click the login button
-    Then I should see an error message for empty username
+  Scenario Outline: Validate login form with various credential combinations
+    Given I am on the login page
+    When I enter username "<username>"
+    And I enter password "<password>"
+    And I clear the fields if "<clearFields>" is "true"
+    And I click on the login button
+    Then I should see "<expectedMessage>"
 
-  Scenario: Login with missing password
-    Given I open the login page
-    When I enter only a username
-    When I click the login button
-    Then I should see an error message for missing password
-
-  Scenario: Successful login
-    Given I open the login page
-    When I enter valid credentials
-    When I click the login button
-    Then I should see the dashboard title "Swag Labs"
+    Examples:
+      | username                | password     | clearFields | expectedMessage                    |
+      |                         | anyPass      | true        | Epic sadface: Username is required |
+      | validUser               |              | false       | Epic sadface: Password is required |
+      | performance_glitch_user | secret_sauce | false       | Swag Labs                          |

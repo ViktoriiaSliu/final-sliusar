@@ -1,35 +1,61 @@
+const logger = require("../utils/logger");
+
 class LoginPage {
-    get usernameInput() { return $('#user-name'); }
-    get passwordInput() { return $('#password'); }
-    get loginButton() { return $('#login-button'); }
-    get errorMessage() { return $('.error-message-container'); }
+  // Selectors
+  get username() {
+    return $("#user-name");
+  }
+  get password() {
+    return $("#password");
+  }
+  get loginButton() {
+    return $("#login-button");
+  }
+  get errorMessage() {
+    return $(".error-message-container");
+  }
 
-    async enterUsername(username) {
-        await this.usernameInput.setValue(username);
-    }
+  // Open the login page
+  async open() {
+    logger.info("Opening the login page");
+    await browser.url("https://www.saucedemo.com/");
+  }
 
-    async enterPassword(password) {
-        await this.passwordInput.setValue(password);
-    }
+  // Enter username
+  async enterUsername(username) {
+    logger.info(`Entering username: ${username}`);
+    await this.username.setValue(username);
+  }
 
-    async clearInputs() {
-        await this.usernameInput.clearValue();
-        await this.passwordInput.clearValue();
-    }
+  // Enter password
+  async enterPassword(password) {
+    logger.info(`Entering password`);
+    await this.password.setValue(password);
+  }
 
-    async clearPassword() {
-        await this.passwordInput.clearValue();
-    }
+  // Clear fields
+  async clearFields() {
+    logger.info("Clearing fields");
+    await this.username.setValue("");
+    await this.password.setValue("");
 
-    async clickLogin() {
-        await this.loginButton.click();
-    }
+    expect(await this.username.getValue()).to.equal("");
+    expect(await this.password.getValue()).to.equal("");
+  }
 
-    async getErrorMessage() {
-        await this.errorMessage.waitForDisplayed({ timeout: 3000 }); 
-        return await this.errorMessage.getText();
-    }
+  // Click login button
+  async clickLogin() {
+    logger.info("Clicking the login button");
+    await this.loginButton.click();
+  }
 
+  // Get error message text
+  async getErrorMessage() {
+    await this.errorMessage.waitForDisplayed({ timeout: 2000 });
+    const errorText = await this.errorMessage.getText();
+    logger.error(`Login error message displayed: ${errorText}`);
+    return errorText;
+  }
 }
 
 module.exports = new LoginPage();
